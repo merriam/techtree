@@ -5,4 +5,4 @@ Not much time today to play.   Set up a github repository, clone it to local, st
 
 These files should be markdown, it's just cleaner that way.  Copying off a few random views of how it should work.
 
-Learned a smidgeon more about markdown outlines.  Emacs shift-tab is odd.
+Learned a smidgeon more about markdown outlines.  Emacs shift-tab is odd.  Also a line like "\#.#" in .gitignore ignores some emacs files
