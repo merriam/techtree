@@ -56,10 +56,11 @@ Issues
 
 Open Emacs Issues
 --
-- Need better way to wrap text, the text mode.
-- Still missing pgup/pgdown as terminal remaps
-- Easy way to increase face when working without glasses, map to ctrl+/ctrl-
-- Need .emacs under source control
+
+* Need better way to wrap text, the text mode.
+* Still missing pgup/pgdown as terminal remaps
+* Easy way to increase face when working without glasses, map to ctrl+/ctrl-
+* Need .emacs under source control
 
 
 Plan for Development
