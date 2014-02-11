@@ -22,6 +22,9 @@ test_container_fail:
 	@echo "This should fail!"
 	docker run ubuntu /bin/sh -c 'exit 1'
 
+test_node_pass:
+	docker run node node -c 'console.log("Node runs!")'
+
 # These are here because I hate how sysadmin takes over the lore af a project
 get_docker:
 	# boot2docker is a lightweight docker container
@@ -35,8 +38,11 @@ get_docker:
 	export DOCKER_HOST=tcp://
 	@echo "Remember to set 'export DOCKER_HOST=tcp://' somewhere"
 	sudo mv docker /usr/local/bin/
+
+boot2docker:
 	#
 	# Init the daemon.
+	bin/boot2docker down || true
 	bin/boot2docker delete || true
 	bin/boot2docker init
 	bin/boot2docker up
@@ -46,7 +52,13 @@ get_docker:
 up:
 	bin/boot2docker up
 
-get_docker_images:	up
-	docker run ubuntu date
+kill_images:  up
+	docker rmi node
+	docker rmi ubuntu
 
-tests:  test_pass test_versions test_container_pass
+docker_images:	up
+	docker run ubuntu date
+	docker build --tag="node" node_docker
+	docker images
+
+tests:  test_pass test_versions test_container_pass test_node_pass

@@ -1,11 +1,31 @@
+2/11/2014
+-
+
+Trying to add a 'delete images' target, but running into more bugs with docker.  First, some odd zombie container, then another image_delete error on the last container.
+
+The node.js package is node.   The node package is an amateur packet radio package that creates a /usr/sbin/node.
+
+
+Still playing with just running apt-get update and apt-get install.   Amazingly badly written pieces everywhere.   The default output is a spew, but the cryptic messages like "invoke-rc.d: policy-rc.d denied execution of stop" is in stdout instead of stderr.   Man page documentation of -q is unreadable, and apt-get install -q still has "Reading database..." display hacks in it.  Avoiding go down a rabbit hole filing bugs.
+
+
 2/10/2014
 -
+
+Added spotify's dockerfile mode (https://github.com/spotify/dockerfile-mode) for better syntax highlighting goodness.   Really need to put .emacs under source control.
 
 Playing around with docker.  Feels like slogging through random errors.   A missing environment errors manifests itself as 'docker version' dying.  Something is corrupted down in the virtual boxes.  No documentation on the docker cache.
 
 Stopped playing with the check_update.py feature:  it can be a full new program.
 
 Added first tests with 'ubuntu' base repository.   Added comments to the 'ubuntu' image.  Added to bug report on "Couldn't snd EOF".  Didn't file bugs on docs being wrong about mounts.   Didn't file bugs on missing docs on exit status.   Only so many bugs reported per day.
+
+Bugging out on an "Unexpected EOF" which might be a vagrant error and might be a docker error.   Added to current bug report.   Found out that:
+
+* Standard Virtual Box images live in "~/VirtualBox VMs", but the boot2docker virtualbox image lives in ~/.boot2docker.
+* bin/boot2docker ssh has the password as tcuser
+* The boot2docker vmdk seems to be small, only 1.9GB.   The settings suggest it may grow to as much as 40 gb.
+* boot2docker gives "locked" errors meaning that it is still running when trying to delete it.
 
 
 2/9/2014

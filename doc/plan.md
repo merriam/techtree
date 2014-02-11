@@ -28,11 +28,8 @@ Steps
 Docker Notes
 ----
 *   VirtualBox is installed at system level.
-*   Install docker at local level.  Should have directory like docker.0.8
-      and link to it.
-*   Docker needs
-      cd ~/p/dev/docker && vagrant up && vagrant ssh
-     Virtual boxes live in "~/VirtualBox VMs", yes with a space
+*   Docker install does not have a version number attached; I use check_version.py
+*   Docker stack is huge:  vagrant, docker, ubuntu, docker.io, and VirtualBox
 
 
 Create Recipe
@@ -52,13 +49,12 @@ Issues
 ---
 
 *  Need to make a share directory using the docker's vagrant file so that editing in OS/X shows up in the VM filespace easily.
-*  Need to maintain simple 'go' command to make tests happen and so on.
+*  Need to maintain simple 'make' command to make tests happen and so on.
 
 Open Emacs Issues
 --
 
 * Need better way to wrap text, the text mode.
-* Still missing pgup/pgdown as terminal remaps
 * Easy way to increase face when working without glasses, map to ctrl+/ctrl-
 * Need .emacs under source control
 
@@ -90,7 +86,6 @@ alt steps
 ---------
 
    Need to read about new Docker
-   -   download new docker
    -   figure out plan of docker heirarchy:
        *     core ubuntu
        *    patched ubuntu
@@ -102,14 +97,11 @@ alt steps
          - run web server and connect to it
          - suck off logs
 
-   Need a vagrant file to spin up a docker
-   Need to understand docker files
-   Need to create a structure:
-      src, lib, bin
-   Need to figure out Travis CI
-      need to set up a git repo
-   Need to select some testing tools
-   Serving via Node.js
+   * Need to figure out Travis CI
+   * Need to select some testing tools (jasmine?)
+   * Learn node.js
+   * macros in js?
 
-   Open a terminal in emacs....
+
+
 ))
