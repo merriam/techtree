@@ -3,6 +3,9 @@
 
 Playing around with docker.  Feels like slogging through random errors.   A missing environment errors manifests itself as 'docker version' dying.  Something is corrupted down in the virtual boxes.  No documentation on the docker cache.
 
+Stopped playing with the check_update.py feature:  it can be a full new program.
+
+Added first tests with 'ubuntu' base repository.   Added comments to the 'ubuntu' image.  Added to bug report on "Couldn't snd EOF".  Didn't file bugs on docs being wrong about mounts.   Didn't file bugs on missing docs on exit status.   Only so many bugs reported per day.
 
 
 2/9/2014
