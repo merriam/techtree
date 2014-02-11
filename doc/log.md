@@ -1,3 +1,10 @@
+2/10/2014
+-
+
+Playing around with docker.  Feels like slogging through random errors.   A missing environment errors manifests itself as 'docker version' dying.  Something is corrupted down in the virtual boxes.  No documentation on the docker cache.
+
+
+
 2/9/2014
 -
 
