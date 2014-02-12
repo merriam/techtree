@@ -23,7 +23,7 @@ test_container_fail:
 	docker run ubuntu /bin/sh -c 'exit 1'
 
 test_node_pass:
-	docker run node node -c 'console.log("Node runs!")'
+	docker run node nodejs -e 'console.log("Node runs!")'
 
 # These are here because I hate how sysadmin takes over the lore af a project
 get_docker:
@@ -40,10 +40,7 @@ get_docker:
 	sudo mv docker /usr/local/bin/
 
 boot2docker:
-	#
-	# Init the daemon.
-	bin/boot2docker down || true
-	bin/boot2docker delete || true
+	# Did you want to kill_boot2docker first?
 	bin/boot2docker init
 	bin/boot2docker up
 	@echo "This is now installed:"
@@ -52,9 +49,19 @@ boot2docker:
 up:
 	bin/boot2docker up
 
+
+kill_boot2docker:
+	bin/boot2docker down || true
+	bin/boot2docker delete || true
+
 kill_images:  up
-	docker rmi node
-	docker rmi ubuntu
+	# kill running processes
+	docker ps -q | xargs docker kill || true
+	# now kill all containers
+	docker ps -a -q | xargs docker rm || true
+	# now remove the images
+	docker images -a -q | xargs docker rmi || true
+	@echo "All docker images gone."
 
 docker_images:	up
 	docker run ubuntu date
