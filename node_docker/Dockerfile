@@ -22,6 +22,9 @@ run apt-get upgrade -y
 # The npm package manager drags in many packages.
 run apt-get install -y node.js npm
 
+# install some handy node packages
+run npm install express request
+
 # expose port 8080, a private only mapping.
 # see http://crosbymichael.com/dockerfile-best-practices.html on why private only.
 expose 8080
