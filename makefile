@@ -27,6 +27,9 @@ test_node_pass:
 	docker run node nodejs -e 'console.log("Node runs!")'
 
 tests:  test_pass test_versions test_container_pass test_node_pass
+	# Run jasmine tests
+	open src/SpecRunner.html
+
 
 
 
