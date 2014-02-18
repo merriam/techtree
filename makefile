@@ -9,6 +9,7 @@ test_pass:
 	@echo "Empty test passes!"
 
 test_versions:
+	# burned once by VirtualBox being out of date.
 	python3 bin/check_version.py
 
 # This is here just to have a failed make.  It is not in the test list.
@@ -25,6 +26,11 @@ test_container_fail:
 test_node_pass:
 	docker run node nodejs -e 'console.log("Node runs!")'
 
+tests:  test_pass test_versions test_container_pass test_node_pass
+
+
+
+## Lots of docker commands to be built and organized.
 # These are here because I hate how sysadmin takes over the lore af a project
 get_docker:
 	# boot2docker is a lightweight docker container
@@ -49,7 +55,6 @@ boot2docker:
 up:
 	bin/boot2docker up
 
-
 kill_boot2docker:
 	bin/boot2docker down || true
 	bin/boot2docker delete || true
@@ -67,5 +72,3 @@ docker_images:	up
 	docker run ubuntu date
 	docker build --tag="node" node_docker
 	docker images
-
-tests:  test_pass test_versions test_container_pass test_node_pass
