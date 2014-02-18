@@ -32,6 +32,19 @@ Docker Notes
 *   Docker stack is huge:  vagrant, docker, ubuntu, docker.io, and VirtualBox
 
 
+Node libraries
+-
+
+1.  *request* is an http client for fetching web pages.
+2.  *underscore* and competitor *lo-dash* are a bunch of handy map/reduce/index utilities
+3.  *express* a really lightweight framework
+4.  *sweet.js* a set of macros
+5.  *jasmine* competes with *mocha* as a testing harness with jasmine for beginers.
+6.  *colors* is way to colorize console output
+
+
+
+
 Create Recipe
 ----
 1.   Start with Ubuntu
