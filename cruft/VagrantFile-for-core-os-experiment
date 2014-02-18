@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# # vi: set ft=ruby :
+# Hand edited from https://github.com/coreos/coreos-vagrant/ repository
+# according to directions in http://www.siliconfidential.com/articles/docker-coreos-osx/
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "coreos"
+  config.vm.box_url = "http://storage.core-os.net/coreos/amd64-generic/dev-channel/coreos_production_vagrant.box"
+
+  # Uncomment below to enable NFS for sharing the host machine into the coreos-vagrant VM.
+  config.vm.network "private_network", ip: "172.12.8.150"
+  config.vm.synced_folder "/users/charlesmerriam/p/techtree", "/home/core/host", id: "core", :nfs => true,  :mount_options   => ['nolock,vers=3,udp']
+# OK, so I don't know the options and Vagrant doesn't lit them.  I'm guessing here.
+# was config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true,  :mount_options   => ['nolock,vers=3,udp']
+
+  # adding these lines to forward parts.
+  # A bit confused, ince 49151- is the general tcp/udp area, so I'll get
+  # an error on Apple's Time Machine taking up a port.
+  # That is: sudo lsof -i -n -P | grep TCP | grep 49152 tells me that mtmfs has this port.
+  # so (49000..49900).each do |port|  is out.
+  (49160..49900).each do |port|
+     config.vm.network :forwarded_port, :host => port, :guest => port
+  end
+
+  # Fix docker not being able to resolve private registry in VirtualBox
+  config.vm.provider :virtualbox do |vb, override|
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+  end
+
+  config.vm.provider :vmware_fusion do |vb, override|
+    override.vm.box_url = "http://storage.core-os.net/coreos/amd64-generic/dev-channel/coreos_production_vagrant_vmware_fusion.box"
+  end
+
+  # plugin conflict
+  if Vagrant.has_plugin?("vagrant-vbguest") then
+    config.vbguest.auto_update = false
+  end
+end
