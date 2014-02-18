@@ -1,5 +1,24 @@
+2/17/2014
+-
+
+It's been a few days.  Just kids, a nice date, a day at Angel Island.  I did spend an hour or two mucking around with sample data from frustration of being a week into the project without getting infrastructure to work.
+
+Time to come back to the project.   Suddenly it seems I left it broken.  The 'docker' mechanisms arebroken with boot2docker not mounting files and CoreOS failing to work.   'make' is broken.   tests are broken.  The 'git' is out of date.  The only solution is to work at getting a process back.  Make a test run, with git up to date.  I started with the tests and am adding there.
+
+2/12/2014
+-
+
+Played with Jasmine files as a test framework.   Seems to work, though Safari lies about 'disable caches`.   Remember to constantly empty the cache and then reload (option-cmd E; cmd-R).
+
+Tried mounting the Jasmine files into the node image.  Filed two pull requests in Docker:  the mount commands only use the boot2docker vm.
+
+
+
 2/11/2014
 -
+
+Finally got past bugs (on a better network) and managed to get node.js running in a container.  Good milestone.
+
 
 Trying to add a 'delete images' target, but running into more bugs with docker.  First, some odd zombie container, then another image_delete error on the last container.
 
