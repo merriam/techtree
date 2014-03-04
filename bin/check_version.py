@@ -33,7 +33,7 @@ def check_by_list():
     checks = [ ("VirtualBox", b"4.3.6",
         'https://www.virtualbox.org/wiki/Downloads',
         b'OS X.*/virtualbox/(\d\.\d\.\d)/'),
-           ("Docker", b"0.8.0",
+           ("Docker", b"0.8.1",
         'https://raw.github.com/dotcloud/docker/release/VERSION',
         b'(\d.\d.\d)') ]
 
