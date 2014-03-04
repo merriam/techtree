@@ -5,6 +5,7 @@
 
 import subprocess
 import re
+import sys
 
 def curl_match(url, regex):
     out = subprocess.check_output(
@@ -43,6 +44,9 @@ def check_by_list():
             exit_code = 1
     exit(exit_code)
 
+
+#---- New code
+
 class Program:
    # OK, this is part of going too far and making a package for up to date.
    # It would have the commonds to get the installed version of each target
@@ -55,4 +59,20 @@ class Program:
        self.url = url      # url to fetch to get current released number
        self.url_regex = url_regex   # number
 
-check_by_list()
+
+def check():
+    """ return True if everything up to date, else false.
+
+    Print statust to terminal. """
+
+    print("Checking status")
+    print("    This is only a test")
+    return True
+
+
+if __name__ == "__main__":
+    is_ok = check()
+    if is_ok:   # Unix has 0 as success, 1 for fail.
+       sys.exit(0)
+    else:
+       sys.exit(1)
