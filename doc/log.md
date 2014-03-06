@@ -1,3 +1,46 @@
+3/6/2014 -
+
+I want to spend only a portion of today on the technology.  My life would be better to order an electrician and deal with an IRS check today.
+
+I learned an important messagea about TDD.  I overreached and wrote a whole bunch since it seemed "easy".  This meant that I had bugs and changes that I should have avoided.
+
+3/5/2014 -
+
+So yesterday was somewhat productive, then getting pulling into making a good development environment.
+
+I wrote a TDD generation of check_version.py, itself a development
+tool.  This round stubs out the functionality as suggested in
+http://blog.testdouble.com/posts/2014-01-25-the-failures-of-intro-to-tdd.html.
+I started to see how the design begins to clean and evolve this way.
+I also notice the value of doing a careful code reading before the
+first compile and the value of stopping when I'm about to fidger in
+code writing.  More to learn.
+
+On the other side, I went down the rabbit hole again on development
+environmnets.  I learned that I have issues with virtualenv trying to
+put its path before /usr/local/bin and bash putting in /usr/local/bin.
+The more general problem is this: I tried developing outside a virtual
+environment, because the project was 'small'.  In practice, this is a
+project and should run in a vm.  It's hard to make the choice that
+yes, this needs a vm.
+
+Also, I really should look at using the space bar for the control key.
+
+3/4/2014 -
+
+Last night, I tried everything to make virtualenv work again.
+Apparently, it got broken in two ways.  First, the shebang lines
+started saying "#!/usr/bin/python" which would always run the older
+version specific to OS/X.  I finally just symlinked "ln -s
+/usr/bin/python /usr/local/bin/python".  Second, the wrapper function
+tried load_entry_point with the wrong version, so I just edited
+/usr/local/bin/virtualenv and changed it to the current 1.11.4
+version.  Why on earth is the installation this borked?
+
+Today, I'm still trying to get flymake of pylint to work.  I created a
+virtualenv named "big3" into which I add nose, pylint, and may well
+add more libraries.  Still understanding the flymake mode.
+
 3/3/2014 -
 
 Finally able to pick this back up.  I had kids for a week
